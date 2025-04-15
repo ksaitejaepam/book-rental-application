@@ -1,0 +1,7 @@
+# Ignore virtual environment folders
+user_service/.venv/
+book_service/.venv/
+
+# Ignore environment variable files
+user_service/.env
+book_service/.env
