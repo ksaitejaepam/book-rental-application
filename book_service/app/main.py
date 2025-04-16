@@ -1,11 +1,15 @@
 from fastapi import FastAPI
-from routes import router
-from database import init_db, close_db
+
+from app.exceptions import register_exception_handlers
+from app.routers import router
+from app.database import init_db, close_db
 
 app = FastAPI(title="Book Service")
 
 # Include Routes
 app.include_router(router, prefix="/books", tags=["Books"])
+
+register_exception_handlers(app)
 
 @app.on_event("startup")
 async def startup():

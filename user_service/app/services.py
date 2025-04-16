@@ -1,7 +1,7 @@
 from fastapi import HTTPException
-from models import User
-from schemas import UserCreate, UserLogin
-from auth import hash_password, verify_password, create_access_token
+from app.models import User
+from app.schemas import UserCreate, UserLogin
+from app.auth import hash_password, verify_password, create_access_token
 
 async def create_user(user_data: UserCreate):
     existing_user = await User.filter(email=user_data.email).first()

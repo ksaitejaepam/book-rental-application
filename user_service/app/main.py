@@ -1,10 +1,13 @@
 from fastapi import FastAPI
-from database import init_db, close_db
-from routers import router
+from app.database import init_db, close_db
+from app.routers import router
+from app.exceptions import register_exception_handlers
 
 app = FastAPI(title="User Service API")
 
 app.include_router(router, prefix="/users", tags=["Users related endpoints"])
+
+register_exception_handlers(app)
 
 @app.on_event("startup")
 async def startup():

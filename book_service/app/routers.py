@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from models import Book
-from schemas import BookCreate, BookUpdate, BookResponse
+from app.models import Book
+from app.schemas import BookCreate, BookUpdate, BookResponse
 from uuid import UUID
 
 router = APIRouter()
